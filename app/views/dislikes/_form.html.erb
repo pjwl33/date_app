@@ -1,0 +1,17 @@
+<%= form_for @dislike, method: :post do |f| %>
+  <ul>
+    <li>
+      <%= f.label :channing_tatum %>
+      <%= check_box 'Channing Tatum', 'channing_tatum' %>
+    </li>
+    <li>
+      <%= f.label :cottage_cheese %>
+      <%= check_box 'Cottage Cheese', 'cottage_cheese' %>
+    </li>
+    <li>
+      <%= f.label :selfies %>
+      <%= check_box 'Selfies', 'selfies' %>
+    </li>
+  </ul>
+  <%= f.submit "Submit" %>
+<% end %>

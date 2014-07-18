@@ -22,8 +22,6 @@ group :development do
   gem 'dotenv-rails'
   gem 'pry-rails'
   gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'rack-mini-profiler'
 end
 
 group :development, :test do
