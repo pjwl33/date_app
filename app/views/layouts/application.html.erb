@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hate2LuvApp</title>
+  <link rel="icon" type="image/png" href="">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <h1><%= link_to "Welcome to Hate2Luv", root_path %></h1>
+  <% if signed_in? %>
+  <li><i class="fa fa-sign-out"></i><%= link_to "Sign Out", signout_path %></li>
+  <% else %>
+  <li><i class="fa fa-facebook"></i><%= link_to "Sign In with Facebook", "auth/facebook" %></li>
+  <% end %>
+  <%= yield %>
+
+</body>
+</html>
