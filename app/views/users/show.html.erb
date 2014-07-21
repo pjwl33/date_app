@@ -1,0 +1,28 @@
+<h1><%= @user.name %></h1>
+
+<img src="<%= @user.image %>" alt="">
+
+<h3><%= @user.email %></h3>
+
+<ul>
+  <% @user.dislikes.each do |dl| %>
+    <li><%= dl.name %></li>
+  <% end %>
+</ul>
+
+<h2>Matches</h2>
+<ul>
+  <% @user.matches.each do |match| %>
+    <li>match.date.name</li>
+    (<%= link_to "Remove", match, method: :delete %>)
+  <% end %>
+</ul>
+
+<p><%= link_to "Find Matches", users_path %></p>
+
+<h2>People Interested in You</h2>
+<ul>
+  <% @user.inverse_matches.each do |im| %>
+    <li><%= im.name %></li>
+  <% end %>
+</ul>

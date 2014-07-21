@@ -1,13 +1,7 @@
-<h1><%= current_user.name %></h1>
+<%= link_to "What Do You Hate?", dislikes_new_path %>
 
-<img src="<%= current_user.image %>" alt="">
+<% if current_user %>
+  <%= link_to "My Profile", "/users/#{current_user.id}" %>
+<% end %>
 
-<h3><%= current_user.email %></h3>
-
-<ul>
-  <% current_user.dislikes.each do |dl| %>
-    <li><%= dl.name %></li>
-  <% end %>
-</ul>
-
-<%= link_to "What Do You Hate?", "/dislikes/new" %>
+<%= link_to "Find Matches!", users_path %>
