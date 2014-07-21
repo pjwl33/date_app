@@ -1,2 +1,7 @@
-<%= #link_to "Add Match", matches_path(match_id: user), method: :post %>
+<h3>Matches!</h3>
 
+<h3><%= current_user.name %>, <%= current_user.gender.capitalize %></h3>
+
+<h5>Looking for:
+  <select name="gender-search" id=""></select>
+</h5>

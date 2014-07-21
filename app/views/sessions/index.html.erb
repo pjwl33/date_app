@@ -1,7 +1,3 @@
 <%= link_to "What Do You Hate?", dislikes_new_path %>
 
-<% if current_user %>
-  <%= link_to "My Profile", "/users/#{current_user.id}" %>
-<% end %>
-
 <%= link_to "Find Matches!", users_path %>

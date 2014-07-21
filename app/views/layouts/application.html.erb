@@ -11,6 +11,7 @@
 <body>
   <h1><%= link_to "Welcome to Hate2Luv", root_path %></h1>
   <h3><%= flash[:notice] %></h3>
+  <h3><%= flash[:error] %></h3>
   <% if signed_in? %>
     <li><i class="fa fa-sign-out"></i><%= link_to "Sign Out", signout_path %></li>
   <% else %>
