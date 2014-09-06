@@ -1,10 +1,9 @@
 class User < ActiveRecord::Base
-  has_many :dislikes
-  has_many :matches
-  has_many :dates, through: :matches
+  belongs_to :dislike
 
   validates_presence_of :uid, :name, :oauth_token, :oauth_expires_at
   validates_uniqueness_of :uid, :oauth_token
+  # user.interest refers to gender of interest btw
 
   def self.from_omniauth(auth)
     # binding.pry
@@ -14,11 +13,18 @@ class User < ActiveRecord::Base
       user.name = auth.info.name
       user.email = auth.info.email
       user.image = auth.info.image
-      user.gender = auth.extra.raw_info.gender
+      user.gender = check_gender(auth.extra.raw_info.gender)
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
     end
   end
 
+  def gender?
+    self.gender == true ? "male" : "female"
+  end
+
+  def self.check_gender(type)
+    type.downcase == "male" ? true : false
+  end
 end

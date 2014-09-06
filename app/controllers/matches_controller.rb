@@ -1,4 +1,6 @@
 class MatchesController < ApplicationController
+  before_action :current_user
+
   def create
     @match = current_user.matches.create(match_id: params[:match_id])
     if @match.save

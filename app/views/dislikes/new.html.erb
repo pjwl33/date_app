@@ -1,3 +1,7 @@
 <h1>What do you Hate?</h1>
 
-<%= render 'form' %>
+<h3>Choose one wisely for today!</h3>
+<% @dislikes.each do |dl| %>
+  <h4><input type="radio" value="<%= dl.id %>">dl.type_of</h4>
+  <button on-click="saveDislike()">Find Matches</button>
+<% end %>
