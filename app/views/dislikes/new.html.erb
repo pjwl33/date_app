@@ -1,7 +1,10 @@
-<h1>What do you Hate?</h1>
+<h3>Looking for:
+  <input type="radio" value="male"> Male
+  <input type="radio" value="female"> Female
+</h3>
 
-<h3>Choose one wisely for today!</h3>
+<h1>What do you Hate Today?</h1>
 <% @dislikes.each do |dl| %>
-  <h4><input type="radio" value="<%= dl.id %>"><%= dl.type_of %></h4>
+  <h4><input class="dislike-select" type="radio" value="<%= dl.id %>"> <%= dl.type_of.titleize %></h4>
 <% end %>
-<button on-click="saveDislike()">Find Matches</button>
+<button onclick="saveDislike()">Find Matches</button>

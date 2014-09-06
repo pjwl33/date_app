@@ -1,0 +1,1 @@
+var htl = angular.module('ang', ['ngResource', 'ngRoute', 'ngAnimate', 'Filters']);

@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap.min.js
+//= require underscore-min.js
+//= require bootstrap-sprockets
 //= require socket.io
 
 //= require_tree .
+//= //require angular-app

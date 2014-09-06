@@ -29,6 +29,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    angularjs-rails (1.2.20)
     arel (5.0.1.20140414130214)
     aws-sdk (1.40.3)
       json (~> 1.4)
@@ -211,6 +212,7 @@ PLATFORMS
 
 DEPENDENCIES
   actionpack-action_caching
+  angularjs-rails
   aws-sdk (~> 1.40.0)
   better_errors
   capybara
