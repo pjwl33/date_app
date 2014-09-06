@@ -5,7 +5,6 @@ Rails.application.routes.draw do
  get '/auth/failure' => redirect('/')
 
  post '/dislikes' => 'dislikes#create'
- get '/dislikes' => 'dislikes#index'
  get '/dislikes/new' => 'dislikes#new'
 
  post '/matches' => 'matches#create'

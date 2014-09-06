@@ -1,12 +1,16 @@
+require 'actionpack/action_caching'
+
 class DislikesController < ApplicationController
   before_action :current_user
-
-  def index
-    @dislikes = Dislike.all.sample(5)
-  end
+  caches_action :todays_dislikes, expires_in: 24.hour
 
   def new
+    @dislikes = todays_dislikes
     @dislike = Dislike.new
+  end
+
+  def todays_dislikes
+    Dislike.all.sample(5)
   end
 
   def create

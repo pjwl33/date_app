@@ -25,23 +25,23 @@
         <ul class="nav navbar-nav">
           <li>
             <!-- logic about find matches vs. what do you hate if not picked this day? -->
-            <% if current_user.dislike == nil %>
-            <a href="/dislikes/new">What Do You Hate Today?</a>
+            <% if picked_dislike? %>
+              <a href="/users">Find Matches</a>
             <% else %>
-            <a href="/users">Find Matches</a>
+              <a href="/dislikes/new">What Do You Hate Today?</a>
             <% end %>
           </li>
           <li><a href="#">Talk to Your Matches</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if signed_in? %>
-          <li><a href="/users/<%= current_user.id %>">Account Settings</a></li>
+            <li><a href="/users/<%= current_user.id %>">Account Settings</a></li>
           <% end %>
           <li class="active">
             <% if signed_in? %>
-            <li><%= link_to "Sign Out", signout_path %></li>
+              <li><%= link_to "Sign Out", signout_path %></li>
             <% else %>
-            <li><%= link_to "Sign In with Facebook", "auth/facebook" %></li>
+              <li><%= link_to "Sign In with Facebook", "auth/facebook" %></li>
             <% end %>
           </li>
         </ul>
