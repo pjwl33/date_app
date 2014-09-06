@@ -1,4 +1,9 @@
 class DislikesController < ApplicationController
+  before_action :current_user
+
+  def index
+    @dislikes = Dislike.all.sample(5)
+  end
 
   def new
     @dislike = Dislike.new

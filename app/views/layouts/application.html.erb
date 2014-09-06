@@ -4,20 +4,52 @@
   <title>Hate2LuvApp</title>
   <link rel="icon" type="image/png" href="http://belief1913.files.wordpress.com/2011/11/tumblr_kwij6timkf1qae80yo1_500.jpg">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1><%= link_to "Welcome to Hate-To-Love", root_path %></h1>
-  <h3><%= flash[:notice] %></h3>
-  <h3><%= flash[:error] %></h3>
-  <% if signed_in? %>
-    <li><i class="fa fa-sign-out"></i><%= link_to "Sign Out", signout_path %></li>
-  <% else %>
-    <li><i class="fa fa-facebook"></i><%= link_to "Sign In with Facebook", "auth/facebook" %></li>
-  <% end %>
-  <%= yield %>
+  <!-- Fixed Navbar -->
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle Navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/" class="navbar-brand">Hate-To-Love</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li>
+            <!-- logic about find matches vs. what do you hate if not picked this day? -->
+            <a href="#">Find Matches</a>
+          </li>
+          <li><a href="#">Already Matched</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if signed_in? %>
+          <li><a href="/users/<%= current_user.id %>">Account Settings</a></li>
+          <% end %>
+          <li class="active">
+            <% if signed_in? %>
+            <li><%= link_to "Sign Out", signout_path %></li>
+            <% else %>
+            <li><%= link_to "Sign In with Facebook", "auth/facebook" %></li>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3><%= flash[:notice] %></h3>
+    <h3><%= flash[:error] %></h3>
+    <%= yield %>
+  </div>
 
 </body>
 </html>
