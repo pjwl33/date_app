@@ -8,7 +8,7 @@ Rails.application.routes.draw do
  get '/dislikes/new' => 'dislikes#new'
 
  post '/match_request' => 'matches#match_request'
- post '/match_confirm' => 'matches#match_confirm'
+ post '/match_deny_confirm' => 'matches#match_deny_confirm'
  get '/matches' => 'matches#index'
 
  get '/users' => 'users#index'

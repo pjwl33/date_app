@@ -9,9 +9,9 @@
     </div>
 
 
-    <h1><%= u.name %></h1>
+    <a style="cursor:pointer;" href="/users/<%= u.id %>"><h1><%= u.name %></h1></a>
     <div class="profile-pic">
-      <img src="<%= u.image %>">
+      <a style="cursor:pointer;" href="/users/<%= u.id %>"><img src="<%= u.image %>"></a>
     </div>
     <h1>Gender: <%= u.gender?.titleize %></h1>
     <!-- right now, only arbitratily determined since Facebook API doesn't return age for free -->

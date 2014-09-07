@@ -38,8 +38,16 @@ class MatchesController < ApplicationController
     end
   end
 
-  def match_confirm
-
+  def match_deny_confirm
+    match = Match.find(params[:match_id])
+    if params[:type_of] == 'deny'
+      match.update(match_confirm: false, user_confirm: false)
+    elsif params[:type_of] == 'confirm'
+      match.update(match_confirm: true, user_confirm: true)
+    end
+    respond_to do |f|
+      f.json { render json: match }
+    end
   end
 
 end

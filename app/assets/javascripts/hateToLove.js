@@ -40,7 +40,7 @@ function makeDraggable(){
 // }
 
 function checkMatch(matchId, pick){
-  console.log(matchId);
+  // console.log(matchId);
   if (pick == 'hate'){
     nextPerson(matchId);
   } else if (pick == 'love'){
@@ -74,10 +74,37 @@ function nextPerson(matchId){
 
 function denyRequest(reqId){
   console.log(reqId);
+  $.ajax({
+    method: 'POST',
+    url: '/match_deny_confirm',
+    data: {match_id: reqId, type_of: 'deny'},
+    dataType: 'JSON'
+  }).done(function(data){
+    console.log(data);
+    hideMatch(data.id);
+  });
 }
 
 function confirmRequest(reqId){
-  console.log(reqId);
+  $.ajax({
+    method: 'POST',
+    url: '/match_deny_confirm',
+    data: {match_id: reqId, type_of: 'confirm'},
+    dataType: 'JSON'
+  }).done(function(data){
+    console.log(data);
+    hideMatch(data.id);
+  });
+}
+
+function hideMatch(matchId){
+  console.log(matchId);
+  var allPIY = $('.piy-wrap');
+  for (var i = 0; i < allPIY.length; i++){
+    if (allPIY.eq(i).attr('id') == matchId){
+      allPIY.eq(i).remove();
+    }
+  }
 }
 
 function startChat(matchId){

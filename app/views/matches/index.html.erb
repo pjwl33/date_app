@@ -1,7 +1,7 @@
 <div class="people-into-you col-xs-12">
-  <h1><%= @piy.size %> new People are into you!</h1>
+  <h1><%= @piy.size %> new People are interested in you!</h1>
   <% @piy.each do |piy_id, p| %>
-    <div class="piy-wrap row" id="<%= p.id %>">
+    <div class="piy-wrap row" id="<%= piy_id %>">
       <div class="logo-pic col-xs-2">
         <a href="/users/<%= p.id %>"><img src="<%= p.image %>"></a>
       </div>
