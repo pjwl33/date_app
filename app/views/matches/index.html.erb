@@ -1,6 +1,6 @@
 <div class="people-into-you col-xs-12">
   <h1><%= @piy.size %> new People are into you!</h1>
-  <% @piy.each do |p| %>
+  <% @piy.each do |piy_id, p| %>
     <div class="piy-wrap row" id="<%= p.id %>">
       <div class="logo-pic col-xs-2">
         <a href="/users/<%= p.id %>"><img src="<%= p.image %>"></a>
@@ -9,8 +9,8 @@
         <a href="/users/<%= p.id %>"><b><%= p.name %></b></a>
       </div>
       <div class="choices col-xs-3">
-        <i onclick="denyRequest(<%= p.id %>)" class="fa fa-bomb"></i>
-        <i onclick="confirmRequest(<%= p.id %>)" class="fa fa-heart"></i>
+        <i onclick="denyRequest(<%= piy_id %>)" class="fa fa-bomb"></i>
+        <i onclick="confirmRequest(<%= piy_id %>)" class="fa fa-heart"></i>
       </div>
       <div class="col-xs-3">
         <b><%= p.gender?[0].titleize %></b>
