@@ -1,0 +1,42 @@
+<div class="people-into-you col-xs-12">
+  <h1><%= @piy.size %> new People are into you!</h1>
+  <% @piy.each do |p| %>
+    <div class="piy-wrap row" id="<%= p.id %>">
+      <div class="logo-pic col-xs-2">
+        <a href="/users/<%= p.id %>"><img src="<%= p.image %>"></a>
+      </div>
+      <div class="info col-xs-4">
+        <a href="/users/<%= p.id %>"><b><%= p.name %></b></a>
+      </div>
+      <div class="choices col-xs-3">
+        <i onclick="denyRequest(<%= p.id %>)" class="fa fa-bomb"></i>
+        <i onclick="confirmRequest(<%= p.id %>)" class="fa fa-heart"></i>
+      </div>
+      <div class="col-xs-3">
+        <b><%= p.gender?[0].titleize %></b>
+        <b><%= (18..29).to_a.sample %></b>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="already-matched col-xs-12">
+  <h1><%= @matches.size %> Total Matches for <%= current_user.name.titleize %></h1>
+  <% @matches.each do |match_id, u| %>
+    <div class="piy-wrap row" id="<%= u.id %>">
+      <div class="logo-pic col-xs-2">
+        <a href="/users/<%= u.id %>"><img src="<%= u.image %>"></a>
+      </div>
+      <div class="info col-xs-4">
+        <a href="/users/<%= u.id %>"><b><%= u.name %></b></a>
+      </div>
+      <div class="choices col-xs-3">
+        <i onclick="startChat(<%= match_id %>)" class="fa fa-comment"></i>
+      </div>
+      <div class="col-xs-3">
+        <b><%= u.gender?[0].titleize %></b>
+        <b><%= (18..29).to_a.sample %></b>
+      </div>
+    </div>
+  <% end %>
+</div>

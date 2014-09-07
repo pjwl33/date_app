@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
  post '/match_request' => 'matches#match_request'
  post '/match_confirm' => 'matches#match_confirm'
+ get '/matches' => 'matches#index'
 
  get '/users' => 'users#index'
  get '/users/:id' => 'users#show', as: 'user'

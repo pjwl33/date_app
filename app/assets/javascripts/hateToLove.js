@@ -2,6 +2,9 @@ $(document).ready(function(){
   makeDraggable();
   var matches = $('.find-matches-wrap');
   matches.eq(0).css('visibility', 'visible');
+  if (location.href == "http://localhost:3000/matches") {
+    $('html body').css('overflow-y', 'scroll');
+  }
 });
 
 function makeDraggable(){
@@ -69,6 +72,17 @@ function nextPerson(matchId){
   }
 }
 
+function denyRequest(reqId){
+  console.log(reqId);
+}
+
+function confirmRequest(reqId){
+  console.log(reqId);
+}
+
+function startChat(matchId){
+  console.log(matchId);
+}
 
 
 

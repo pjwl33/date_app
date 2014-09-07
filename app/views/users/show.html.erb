@@ -5,7 +5,7 @@
 </div>
 
 <% if current_user.dislikes_id %>
-  <h1>Today, you hate: </h1>
+  <h1>Today, <%= @text %> hate: </h1>
   <h1>'<%= @dislike.type_of.titleize %>'</h1>
 <% else %>
   <h1><a href="/dislikes/new">What Do You Hate Today?</a></h1>

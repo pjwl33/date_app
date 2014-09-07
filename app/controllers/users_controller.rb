@@ -12,8 +12,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(current_user.id)
-    @dislike = Dislike.find(current_user.dislikes_id)
+    @user = User.find(params[:id])
+    @dislike = Dislike.find(@user.dislikes_id)
+    @text = params[:id] == current_user.id ? "you" : "you both"
   end
 
 end

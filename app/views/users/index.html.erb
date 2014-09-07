@@ -1,25 +1,27 @@
-<h1>Hate or Love?</h1>
-<h3><%= @interest.titleize %> who also hate '<%= @dislike.type_of.titleize %>'</h3>
-<% @users.each do |u| %>
-<div class="find-matches-wrap" id="<%= u.id %>">
+<div id="finding-matches">
+  <h1>Hate or Love?</h1>
+  <h3><%= @interest.titleize %> who also hate '<%= @dislike.type_of.titleize %>'</h3>
+  <% @users.each do |u| %>
+  <div class="find-matches-wrap" id="<%= u.id %>">
 
-  <div class="hate-div">
-    <i onclick="checkMatch(<%= u.id %>, 'hate')" class="fa fa-bomb"></i>
-  </div>
-
-
-  <h1><%= u.name %></h1>
-  <div class="profile-pic">
-    <img src="<%= u.image %>">
-  </div>
-  <h1>Gender: <%= u.gender?.titleize %></h1>
-  <!-- right now, only arbitratily determined since Facebook API doesn't return age for free -->
-  <h1>Age: <%= (18..29).to_a.sample %></h1>
+    <div class="hate-div">
+      <i onclick="checkMatch(<%= u.id %>, 'hate')" class="fa fa-bomb"></i>
+    </div>
 
 
-  <div class="love-div">
-    <i onclick="checkMatch(<%= u.id %>, 'love')" class="fa fa-heart"></i>
-  </div>
+    <h1><%= u.name %></h1>
+    <div class="profile-pic">
+      <img src="<%= u.image %>">
+    </div>
+    <h1>Gender: <%= u.gender?.titleize %></h1>
+    <!-- right now, only arbitratily determined since Facebook API doesn't return age for free -->
+    <h1>Age: <%= (18..29).to_a.sample %></h1>
 
-</div><!-- END OF FIND MATCHES WRAP-->
-<% end %>
+
+    <div class="love-div">
+      <i onclick="checkMatch(<%= u.id %>, 'love')" class="fa fa-heart"></i>
+    </div>
+
+  </div><!-- END OF FIND MATCHES WRAP-->
+  <% end %>
+</div>

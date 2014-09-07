@@ -3,7 +3,7 @@ html body {
   font-family: 'Shadows Into Light', cursive;
   font-size: 20pt;
   letter-spacing: 2px;
-  overflow: hidden !important;
+  overflow: hidden;
 }
 
 html body a {
@@ -65,7 +65,7 @@ html body {
 }
 
 i:hover {
-  color: #01B6AD;
+  color: #EE6363;
   cursor: pointer;
   transition: .5s all;
 }
@@ -79,4 +79,25 @@ i:hover {
   top: 0;
   right: 0;
 }
+
+.piy-wrap {
+  box-shadow: 0px 0px 1px #aaa;
+  padding:15px;
+  padding-bottom: 0;
+  margin:20px 0;
+}
+
+.logo-pic img{
+  height: 75px;
+  width: 75px;
+  margin-top:0;
+  margin-left:0;
+  box-shadow: 0px 0px 3px #aaa;
+}
+
+.choices {
+  font-size: 30pt;
+}
+
+
 
