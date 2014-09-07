@@ -23,3 +23,8 @@ TO-DO
 - heroku push (facebook new app/auth with url), ENV variables, assets precompile, heroku seeding (rails c to set up matching dislikes_id)
 - swiping functionality (match on right, on left, do nothing for now)
 - chatroom - if possible
+
+CHATROOM SHOW
+<%= javascript_tag do %>
+  renderMessages("<%= j(@chatroom.id) %>");
+<% end %>
