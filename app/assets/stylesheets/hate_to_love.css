@@ -1,8 +1,8 @@
-html {max-width: 750px;}
 html body {
   color: #eee !important;
   font-family: 'Shadows Into Light', cursive;
   font-size: 20pt;
+  letter-spacing: 2px;
   overflow: hidden !important;
 }
 
@@ -13,6 +13,13 @@ html body a {
 a:hover {text-decoration: none;}
 .navbar li {padding: 5px;}
 .navbar li:hover {box-shadow: 0px 0px 5px #aaa;}
+#header-logo{
+  height:30px;
+  width:30px;
+  border-radius: 50%;
+  margin: 0;
+  box-shadow: none;
+}
 
 button {
   font-family: 'Helvetica' !important;
@@ -24,7 +31,7 @@ img {
   height: 350px;
   border-radius: 50%;
   box-shadow: 0px 0px 15px #fff;
-  margin: 2em;
+  margin: 1em;
 }
 
 html body {
@@ -50,7 +57,7 @@ html body {
   height: 1000px;
   width: 55px;
   position: fixed;
-  color: #aaa;
+  color: #fff;
   margin-top:45px;
 }
 

@@ -4,7 +4,7 @@
   <title>Hate-To-Love</title>
   <link rel="icon" type="image/png" href="http://belief1913.files.wordpress.com/2011/11/tumblr_kwij6timkf1qae80yo1_500.jpg">
   <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -20,25 +20,51 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="/" class="navbar-brand">Hate-To-Love</a>
+        <a href="/" class="navbar-brand">
+          <img src="http://belief1913.files.wordpress.com/2011/11/tumblr_kwij6timkf1qae80yo1_500.jpg" id="header-logo">
+          Hate-To-Love
+        </a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li>
             <!-- logic about find matches vs. what do you hate if not picked this day? -->
-            <a href="/users">Find Matches</a>
+            <a href="/users">
+              <i class="fa fa-heart"></i>
+              Find Matches
+            </a>
           </li>
-          <li><a href="#">Talk to Your Matches</a></li>
+          <li>
+            <a href="#">
+              <i class="fa fa-comment"></i>
+              Start Chatting
+            </a>
+          </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if signed_in? %>
-          <li><a href="/users/<%= current_user.id %>">Account Settings</a></li>
+          <li>
+            <a href="/users/<%= current_user.id %>">
+              <i class="fa fa-users"></i>
+              Account Settings
+            </a>
+          </li>
           <% end %>
           <li class="active">
             <% if signed_in? %>
-            <li><%= link_to "Sign Out", signout_path %></li>
+            <li>
+              <a href="/signout">
+                <i class="fa fa-sign-out"></i>
+                Signout
+              </a>
+            </li>
             <% else %>
-            <li><%= link_to "Sign In with Facebook", "auth/facebook" %></li>
+            <li>
+              <a href="/auth/facebook">
+                <i class="fa fa-facebook"></i>
+                Sign in with Facebook
+              </a>
+            </li>
             <% end %>
           </li>
         </ul>

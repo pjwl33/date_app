@@ -21,7 +21,11 @@ class User < ActiveRecord::Base
   end
 
   def gender?
-    self.gender == true ? "male" : "female"
+    self.gender == true ? "man" : "woman"
+  end
+
+  def men_or_women?(type)
+    type == true ? "Men" : "Women"
   end
 
   def self.check_gender(type)

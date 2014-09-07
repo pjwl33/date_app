@@ -5,9 +5,9 @@ class UsersController < ApplicationController
     if current_user.dislikes_id == nil
       redirect_to dislikes_new_path
     else
-      todays_hate_id = current_user.dislikes_id
-      users_interest = current_user.gender_interest
-      @users = User.where("dislikes_id = #{todays_hate_id} AND gender = #{users_interest}")
+      @dislike = Dislike.find(current_user.dislikes_id)
+      @interest = current_user.men_or_women?(current_user.gender_interest)
+      @users = User.where("dislikes_id = #{current_user.dislikes_id} AND gender = #{current_user.gender_interest}")
     end
   end
 
