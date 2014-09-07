@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require underscore-min.js
+//= //require underscore-min.js
 //= require jquery-ui
 //= require bootstrap-sprockets
 //= require socket.io
