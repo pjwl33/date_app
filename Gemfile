@@ -12,7 +12,7 @@ gem 'spring',        group: :development
 
 gem 'omniauth-facebook'
 gem 'quiet_assets'
-gem 'jquery-ui-rails', '~> 4.2.1'
+gem 'jquery-ui-rails'
 gem 'socket.io-rails'
 # gem 'actionpack-action_caching'
 # gem 'angularjs-rails'

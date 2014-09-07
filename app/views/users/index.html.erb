@@ -1,11 +1,13 @@
 <h1>Hate or Love?</h1>
 
 <% @users.each do |u| %>
-  <h1><%= u.name %></h1>
-  <div class="profile-pic">
-    <img src="<%= u.image %>">
+  <div class="find-matches-wrap">
+    <h1><%= u.name %></h1>
+    <div class="profile-pic">
+      <img src="<%= u.image %>">
+    </div>
+    <h1>Gender: <%= u.gender?.titleize %></h1>
+    <!-- right now, only arbitratily determined since Facebook API doesn't return age for free -->
+    <h1>Age: <%= (18..34).to_a.sample %></h1>
   </div>
-  <h1>Gender: <%= u.gender?.titleize %></h1>
-  <!-- right now, only arbitratily determined since Facebook API doesn't return age for free -->
-  <h1>Age: <%= (18..34).to_a.sample %></h1>
 <% end %>

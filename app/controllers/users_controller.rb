@@ -8,7 +8,6 @@ class UsersController < ApplicationController
       todays_hate_id = current_user.dislikes_id
       users_interest = current_user.gender_interest
       @users = User.where("dislikes_id = #{todays_hate_id} AND gender = #{users_interest}")
-      binding.pry
     end
   end
 
