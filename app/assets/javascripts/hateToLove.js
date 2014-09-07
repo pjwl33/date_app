@@ -1,6 +1,6 @@
 $(document).ready(function(){
   makeDraggable();
-  createSideSwipe();
+  // createSideSwipe();
   var matches = $('.find-matches-wrap');
   matches.eq(0).css('visibility', 'visible');
 });
