@@ -32,8 +32,8 @@ button {
 }
 
 img {
-  width: 350px;
-  height: 350px;
+  width: 450px;
+  height: 450px;
   border-radius: 50%;
   box-shadow: 0px 0px 15px #fff;
   margin: 1em;
@@ -55,10 +55,10 @@ html body {
 .find-matches-wrap {
   display: inline-block;
   visibility: hidden;
-  margin:2em;
+  margin:1em;
 }
 
-#hate-div, #love-div{
+/*#hate-div, #love-div{
   height: 1000px;
   width: 55px;
   position: fixed;
@@ -74,5 +74,5 @@ html body {
 #love-div {
   top: 0;
   right: 0;
-}
+}*/
 

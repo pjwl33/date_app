@@ -9,6 +9,8 @@ class StableSchemaV1 < ActiveRecord::Migration
       t.timestamps
       t.integer  "match_id"
       t.integer  "user_id"
+      t.boolean "match_confirm"
+      t.boolean "user_confirm"
     end
 
     create_table "chatrooms", force: true do |t|

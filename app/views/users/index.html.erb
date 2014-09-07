@@ -1,15 +1,27 @@
-<div id="hate-div"></div>
-<h1>Hate or Love?</h1>
-<h3><%= @interest.titleize %> who also hate '<%= @dislike.type_of.titleize %>'</h3>
-<% @users.each do |u| %>
-<div class="find-matches-wrap" id="<%= u.id %>">
-  <h1><%= u.name %></h1>
-  <div class="profile-pic">
-    <img src="<%= u.image %>">
-  </div>
-  <h1>Gender: <%= u.gender?.titleize %></h1>
-  <!-- right now, only arbitratily determined since Facebook API doesn't return age for free -->
-  <h1>Age: <%= (18..34).to_a.sample %></h1>
+<div class="col-md-12">
+  <h1>Hate or Love?</h1>
+  <h3><%= @interest.titleize %> who also hate '<%= @dislike.type_of.titleize %>'</h3>
+  <% @users.each do |u| %>
+  <div class="find-matches-wrap" id="<%= u.id %>">
+
+    <div class="hate-div col-md-1">
+      <i class="fa fa-heart-o"></i>
+    </div>
+
+    <div class="col-md-10">
+      <h1><%= u.name %></h1>
+      <div class="profile-pic">
+        <img src="<%= u.image %>">
+      </div>
+      <h1>Gender: <%= u.gender?.titleize %></h1>
+      <!-- right now, only arbitratily determined since Facebook API doesn't return age for free -->
+      <h1>Age: <%= (18..34).to_a.sample %></h1>
+    </div>
+
+    <div class="love-div col-md-1">
+      <i class="fa fa-fire"></i>
+    </div>
+
+  </div><!-- END OF FIND MATCHES WRAP-->
+  <% end %>
 </div>
-<% end %>
-<div id="love-div"></div>

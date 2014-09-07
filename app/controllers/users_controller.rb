@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     else
       @dislike = Dislike.find(current_user.dislikes_id)
       @interest = current_user.men_or_women?(current_user.gender_interest)
-      @users = User.where("dislikes_id = #{current_user.dislikes_id} AND gender = #{current_user.gender_interest}")
+      @users = User.where("dislikes_id = #{current_user.dislikes_id} AND gender = #{current_user.gender_interest}").shuffle
     end
   end
 

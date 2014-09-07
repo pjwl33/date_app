@@ -23,19 +23,19 @@ function makeDraggable(){
   }
 }
 
-function createSideSwipe(){
-  $('#hate-div').droppable({
-    drop: function(event, ui){
-      console.log($(this));
-    }
-  });
-  $('#love-div').droppable({
-    drop: function(event, ui){
-      console.log($(this));
-      makeMatch();
-    }
-  });
-}
+// function createSideSwipe(){
+//   $('#hate-div').droppable({
+//     drop: function(event, ui){
+//       console.log($(this));
+//     }
+//   });
+//   $('#love-div').droppable({
+//     drop: function(event, ui){
+//       console.log($(this));
+//       makeMatch();
+//     }
+//   });
+// }
 
 function makeMatch(){
 

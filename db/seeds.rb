@@ -12,8 +12,8 @@ dislikes.each do |d|
   Dislike.create(type_of: d)
 end
 
-first_names = ["Paul", "John", "Luke", "Jane", "Jenny", "Ariel", "Ruby", "Julia", "Ryan", "Steve", "Lauren", "Alex", "Karen", "Katarina", "Carly", "Patrick", "Eric", "Chris", "Amy", "Margo", "Matthew", "Rohin" ,"Payam", "Jenna", "Sherry", "Carol", "Catherine", "Cathy", "Laura", "Jason", "Rachel"]
-last_names = ["Lee", "Smith", "Jones", "White", "Black", "Huang", "Davis", "Torres", "Muhammed", "Heisenberg", "Rosenberg", "Goldberg", "Hannah", "West", "Eastwood", "Bond", "Myers", "Powers", "Obama", "Kennedy", "Adams", "Scott"]
+first_names = ["Paul", "John", "Luke", "Jane", "Jenny", "Ariel", "Ruby", "Julia", "Ryan", "Steve", "Lauren", "Alex", "Karen", "Katarina", "Carly", "Patrick", "Eric", "Chris", "Amy", "Margo", "Matthew", "Rohin" ,"Payam", "Jenna", "Sherry", "Carol", "Catherine", "Cathy", "Laura", "Jason", "Rachel", "Emma", "Natalie", "Carrie", "Noelle", "Veronica", "Kristen", "Katie", "Sara"]
+last_names = ["Lee", "Smith", "Jones", "White", "Black", "Huang", "Davis", "Torres", "Muhammed", "Heisenberg", "Rosenberg", "Goldberg", "Hannah", "West", "Eastwood", "Bond", "Myers", "Powers", "Obama", "Kennedy", "Adams", "Scott", "Watson", "Stone"]
 
 def random_token
   new_token = []
@@ -30,10 +30,10 @@ def random_num
 end
 
 def image_category
-  ['people', 'sports', 'fashion', 'nightlife'].sample
+  ['people', 'sports', 'fashion', 'nightlife', 'abstract', 'city', 'animals', 'food'].sample
 end
 
-250.times do
+350.times do
   User.create({
     provider: 'facebook',
     uid: random_num,
@@ -42,7 +42,7 @@ end
     oauth_expires_at: Time.now + 2.years,
     email: 'user@hatetolove.com',
     gender: [true, false].sample,
-    image: "http://lorempixel.com/350/350/#{image_category}/"
+    image: "http://lorempixel.com/450/450/#{image_category}/"
     })
 end
 

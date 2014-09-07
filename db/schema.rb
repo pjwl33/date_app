@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20140906183407) do
     t.datetime "updated_at"
     t.integer  "match_id"
     t.integer  "user_id"
+    t.boolean  "match_confirm"
+    t.boolean  "user_confirm"
   end
 
   create_table "messages", force: true do |t|

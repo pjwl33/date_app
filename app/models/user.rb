@@ -31,4 +31,12 @@ class User < ActiveRecord::Base
   def self.check_gender(type)
     type.downcase == "male" ? true : false
   end
+
+  # just for development match tests
+  def self.seed_dislikes(nums)
+    User.all.each do |u|
+      u.dislikes_id = nums.sample
+      u.save
+    end
+  end
 end
