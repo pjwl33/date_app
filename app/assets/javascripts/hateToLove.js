@@ -82,6 +82,14 @@ function confirmRequest(reqId){
 
 function startChat(matchId){
   console.log(matchId);
+  $.ajax({
+    method: 'GET',
+    url: '/start_chatting',
+    data: {match_id: matchId}
+  }).done(function(data){
+    console.log(data);
+    location.href = "/chatrooms/" + data.id;
+  });
 }
 
 

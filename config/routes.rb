@@ -14,5 +14,8 @@ Rails.application.routes.draw do
  get '/users' => 'users#index'
  get '/users/:id' => 'users#show', as: 'user'
 
+ get '/start_chatting' => 'chatrooms#start_chatting'
+ get '/chatrooms/:id' => 'chatrooms#show'
+
  get '/signout' => 'sessions#destroy', as: 'signout'
 end

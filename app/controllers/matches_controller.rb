@@ -2,12 +2,19 @@ class MatchesController < ApplicationController
   before_action :signed_in?
 
   def index
-    match_ids = Match.where("user_id = #{current_user.id} OR match_id = #{current_user.id} AND match_confirm = true AND user_confirm = true")
+    match_ids = Match.where("user_id = #{current_user.id} OR match_id = #{current_user.id}")
+    match_ids = match_ids.map do |m|
+      if m.user_confirm == true && m.match_confirm == true
+        m
+      end
+    end
     @matches = {}
-    match_ids.each do |m|
-      User.all.each do |u|
-        if m.match_id == u.id
-          @matches[m.id] = u
+    if match_ids.include?(nil) == false
+      match_ids.each do |m|
+        User.all.each do |u|
+          if m.match_id == u.id
+            @matches[m.id] = u
+          end
         end
       end
     end
