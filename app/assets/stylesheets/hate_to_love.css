@@ -1,7 +1,4 @@
-a:hover {
-  text-decoration: none;
-}
-
+html {max-width: 750px;}
 html body {
   color: #eee !important;
   font-family: 'Shadows Into Light', cursive;
@@ -13,6 +10,7 @@ html body a {
   color: #ddd !important;
   font-size: 20pt !important;
 }
+a:hover {text-decoration: none;}
 
 button {
   font-family: 'Helvetica' !important;
@@ -51,3 +49,22 @@ html body {
 .find-matches-wrap {
   display: inline-block;
 }
+
+#hate-div, #love-div{
+  height: 1000px;
+  width: 45px;
+  position: fixed;
+  z-index: 9999;
+  margin-top:45px;
+}
+
+#hate-div {
+  top: 0;
+  left: 0;
+}
+
+#love-div {
+  top: 0;
+  right: 0;
+}
+
