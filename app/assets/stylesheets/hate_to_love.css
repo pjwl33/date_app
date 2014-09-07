@@ -20,6 +20,11 @@ a:hover {text-decoration: none;}
   margin: 0;
   box-shadow: none;
 }
+.navbar-header {
+  border-bottom: 1px solid #aaa;
+}
+
+.landing-page{margin:5em auto;}
 
 button {
   font-family: 'Helvetica' !important;
