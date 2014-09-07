@@ -1,6 +1,8 @@
 <h1><%= @user.name %></h1>
 
-<img src="<%= @user.image %>" alt="">
+<div class="profile-pic">
+  <img src="<%= @user.image %>" alt="">
+</div>
 
 <% if current_user.dislike != nil %>
   <h1>Today, you hate: <%= @user.dislike %></h1>
