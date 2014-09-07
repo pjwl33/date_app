@@ -1,9 +1,10 @@
 class DislikesController < ApplicationController
-  before_action :signed_in?
+  skip_before_action :verify_authenticity_token
+  before_action :signed_in?, only: [:new]
 
   def new
-    @dislikes = todays_dislikes
     @dislike = Dislike.new
+    @dislikes = todays_dislikes
   end
 
   def todays_dislikes
@@ -17,11 +18,13 @@ class DislikesController < ApplicationController
   end
 
   def create
-    current_user.dislike_id = params[:dislike_id]
-    current_user.save!
+    user = User.find(current_user.id)
+    user.dislikes_id = params["hate-pick"].to_i
+    if params["gender-pick"]
+      user.gender_interest = User.check_gender(params["gender-pick"])
+    end
+    user.save
+    redirect_to users_path
   end
-
-  private
-
 
 end

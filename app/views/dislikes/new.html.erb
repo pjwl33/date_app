@@ -1,24 +1,26 @@
-<form action="/dislikes" method="post">
+<form role="form" id="todays-pick-form" action="/dislikes" method="post">
+  <% if current_user.gender_interest == nil %>
   <div class="gender-interest">
     <h1>Looking for: </h1>
     <div class="form-group">
-      <input type="radio" value="male" selected>
+      <input name="gender-pick" type="radio" value="male">
       <label for="men">Men</label>
     </div>
     <div class="form-group">
-      <input type="radio" value="female">
+      <input name="gender-pick" type="radio" value="female">
       <label for="women">Women</label>
     </div>
   </div>
+  <% end %>
 
   <div class="hate-today">
     <h1>What do you Hate Today?</h1>
     <% @dislikes.each do |dl| %>
     <div class="form-group">
-      <input class="dislike-select" type="radio" value="<%= dl.id %>">
+      <input name="hate-pick" type="radio" value="<%= dl.id %>">
       <label for="<%= dl.id %>"><%= dl.type_of.titleize %></label>
     </div>
     <% end %>
-    <button onclick="saveDislike()" class="btn btn-default">Find Matches</button>
   </div>
+  <button id="todays-pick-btn" class="btn btn-default">Find Matches</button>
 </form>
