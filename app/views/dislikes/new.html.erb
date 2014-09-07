@@ -1,26 +1,24 @@
-<div class="gender-interest">
-  <h1>Looking for: </h1>
-    <form>
-      <div class="form-group">
-        <input type="radio" value="male" selected>
-        <label for="men">Men</label>
-      </div>
-      <div class="form-group">
-        <input type="radio" value="female">
-        <label for="women">Women</label>
-      </div>
-    </form>
-</div>
+<form action="/dislikes" method="post">
+  <div class="gender-interest">
+    <h1>Looking for: </h1>
+    <div class="form-group">
+      <input type="radio" value="male" selected>
+      <label for="men">Men</label>
+    </div>
+    <div class="form-group">
+      <input type="radio" value="female">
+      <label for="women">Women</label>
+    </div>
+  </div>
 
-<div class="hate-today">
-  <h1>What do you Hate Today?</h1>
-  <form>
+  <div class="hate-today">
+    <h1>What do you Hate Today?</h1>
     <% @dislikes.each do |dl| %>
-      <div class="form-group">
-        <input class="dislike-select" type="radio" value="<%= dl.id %>">
-        <label for="<%= dl.id %>"><%= dl.type_of.titleize %></label>
-      </div>
+    <div class="form-group">
+      <input class="dislike-select" type="radio" value="<%= dl.id %>">
+      <label for="<%= dl.id %>"><%= dl.type_of.titleize %></label>
+    </div>
     <% end %>
     <button onclick="saveDislike()" class="btn btn-default">Find Matches</button>
-  </form>
-</div>
+  </div>
+</form>
