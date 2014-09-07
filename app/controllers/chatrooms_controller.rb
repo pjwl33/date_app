@@ -14,5 +14,6 @@ class ChatroomsController < ApplicationController
     @user = current_user
     their_id = current_user.id == match.user_id ? match.match_id : match.user_id
     @match = User.find(their_id)
+    @messages = Message.where("chatrooms_id = #{chatroom.id}")
   end
 end

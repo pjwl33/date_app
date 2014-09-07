@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   belongs_to :dislike
+  has_many :messages
 
   validates_presence_of :uid, :name, :oauth_token, :oauth_expires_at
   validates_uniqueness_of :uid, :oauth_token
