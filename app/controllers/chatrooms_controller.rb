@@ -9,11 +9,11 @@ class ChatroomsController < ApplicationController
   end
 
   def show
-    chatroom = Chatroom.find(params[:id])
-    match = Match.find(chatroom.matches_id)
+    @chatroom = Chatroom.find(params[:id])
+    match = Match.find(@chatroom.matches_id)
     @user = current_user
     their_id = current_user.id == match.user_id ? match.match_id : match.user_id
     @match = User.find(their_id)
-    @messages = Message.where("chatrooms_id = #{chatroom.id}")
+    @messages = Message.where("chatrooms_id = #{@chatroom.id}")
   end
 end

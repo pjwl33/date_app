@@ -13,3 +13,15 @@
 
   </div>
 </div>
+<div class="message-send-box">
+  <form action="/messages" method="post">
+    <div class="input-group">
+      <input type="text" class="form-control" name="new-message">
+      <span class="input-group-addon">Send</span>
+    </div>
+  </form>
+</div>
+
+<%= javascript_tag do %>
+  renderMessages("<%= j(@chatroom.id) %>");
+<% end %>

@@ -99,5 +99,32 @@ i:hover {
   font-size: 30pt;
 }
 
+.chat-box {
+  box-shadow: 0px 0px 3px #fff;
+  margin-top: 10px;
+  height: 425px;
+}
 
+.message-send-box {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+}
+
+.message-send-box input {
+  width: 100%;
+  font-family: 'Helvetica', sans-serif;
+  color: #333 !important;
+}
+
+.message-send-box .input-group {
+  margin:0;
+}
+
+.message-send-box span {
+  font-family: 'Helvetica', sans-serif;
+  cursor: pointer;
+}
 

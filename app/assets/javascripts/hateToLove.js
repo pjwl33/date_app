@@ -119,6 +119,23 @@ function startChat(matchId){
   });
 }
 
+function renderMessages(chatroomId){
+  $.ajax({
+    url: '/messages',
+    method: 'GET',
+    dataType: 'JSON',
+    data: {chatroom_id: chatroomId}
+  }).done(function(data){
+
+  })
+}
+
+function addMessage(){
+
+}
+
+
+
 
 
 
