@@ -3,21 +3,22 @@ class MatchesController < ApplicationController
 
   def index
     match_ids = Match.where("user_id = #{current_user.id} OR match_id = #{current_user.id}")
-    match_ids = match_ids.map do |m|
+    match_made = []
+    match_ids.each do |m|
       if m.user_confirm == true && m.match_confirm == true
-        m
+        match_made << m
       end
     end
     @matches = {}
-    if match_ids.include?(nil) == false
-      match_ids.each do |m|
-        User.all.each do |u|
-          if m.match_id == u.id
-            @matches[m.id] = u
-          end
+    match_made.each do |m|
+      User.all.each do |u|
+        their_id = current_user.id == m.user_id ? m.match_id : m.user_id
+        if their_id == u.id
+          @matches[m.id] = u
         end
       end
     end
+    binding.pry
 
     people_interested_in_you = Match.where("match_id = #{current_user.id} AND user_confirm = true AND match_confirm = false")
     @piy = []
@@ -31,12 +32,7 @@ class MatchesController < ApplicationController
   end
 
   def match_request
-    Match.create({
-      user_id: current_user.id,
-      match_id: params[:match_id],
-      user_confirm: true,
-      match_confirm: false
-      })
+    Match.check_matches(current_user.id, params[:match_id].to_i)
     respond_to do |f|
       f.json { render json: {msg: "Well let them know!"}}
     end
