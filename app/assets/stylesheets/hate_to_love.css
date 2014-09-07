@@ -58,21 +58,25 @@ html body {
   margin:1em;
 }
 
-/*#hate-div, #love-div{
-  height: 1000px;
-  width: 55px;
+.hate-div, .love-div{
+  font-size: 50pt;
   position: fixed;
-  color: #fff;
-  margin-top:45px;
+  margin: 5em 0.5em;
 }
 
-#hate-div {
+i:hover {
+  color: #01B6AD;
+  cursor: pointer;
+  transition: .5s all;
+}
+
+.hate-div {
   top: 0;
   left: 0;
 }
 
-#love-div {
+.love-div {
   top: 0;
   right: 0;
-}*/
+}
 

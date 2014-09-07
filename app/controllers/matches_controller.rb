@@ -1,22 +1,20 @@
 class MatchesController < ApplicationController
   before_action :signed_in?
 
-  def create
-    @match = current_user.matches.create(match_id: params[:match_id])
-    if @match.save
-      flash[:notice] = "We'll let them know!"
-      redirect_to root_path
-    else
-      flash[:error] = "Unable to add Match"
-      redirect_to root_path
+  def match_request
+    binding.pry
+    Match.create({
+      user_id: current_user.id,
+      match_id: params[:match_id],
+      user_confirm: true,
+      })
+    respond_to do |f|
+      f.json { render json: {msg: "Well let them know!"}}
     end
   end
 
-  def destroy
-    @match = current_user.matches.find(params[:id])
-    @match.destroy
-    flash[:notice] = "We'll let them know..."
-    redirect_to root_path
+  def match_request
+
   end
 
 end

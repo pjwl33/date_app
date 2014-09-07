@@ -7,8 +7,8 @@ Rails.application.routes.draw do
  post '/dislikes' => 'dislikes#create'
  get '/dislikes/new' => 'dislikes#new'
 
- post '/matches' => 'matches#create'
- delete '/matches' => 'matches#destroy'
+ post '/match_request' => 'matches#match_request'
+ post '/match_confirm' => 'matches#match_confirm'
 
  get '/users' => 'users#index'
  get '/users/:id' => 'users#show', as: 'user'

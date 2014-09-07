@@ -1,6 +1,5 @@
 $(document).ready(function(){
   makeDraggable();
-  // createSideSwipe();
   var matches = $('.find-matches-wrap');
   matches.eq(0).css('visibility', 'visible');
 });
@@ -37,6 +36,52 @@ function makeDraggable(){
 //   });
 // }
 
-function makeMatch(){
-
+function checkMatch(matchId, pick){
+  console.log(matchId);
+  if (pick == 'hate'){
+    nextPerson(matchId);
+  } else if (pick == 'love'){
+    sendMatchRequest(matchId);
+  }
 }
+
+function sendMatchRequest(matchId){
+  console.log("Sending match request...");
+  $.ajax({
+    method: 'POST',
+    url: '/match_request',
+    dataType: 'JSON',
+    data: {match_id: matchId}
+  }).done(function(data){
+    console.log(data);
+    nextPerson(matchId);
+  });
+}
+
+function nextPerson(matchId){
+  console.log("Moving onto the next person...");
+  var allMatches = $('.find-matches-wrap');
+  for (var i = 0; i < allMatches.length; i++){
+    if (allMatches.eq(i).attr('id') == matchId){
+      allMatches.eq(i).next().css('visibility', 'visible');
+      allMatches.eq(i).remove();
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
