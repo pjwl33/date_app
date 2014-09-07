@@ -11,3 +11,39 @@ dislikes = ["Channing Tatum", "Selfies", "Cottage Cheese", "Holidays", "Snow", "
 dislikes.each do |d|
   Dislike.create(type_of: d)
 end
+
+first_names = ["Paul", "John", "Luke", "Jane", "Jenny", "Ariel", "Ruby", "Julia", "Ryan", "Steve", "Lauren", "Alex", "Karen", "Katarina", "Carly", "Patrick", "Eric", "Chris", "Amy", "Margo", "Matthew", "Rohin" ,"Payam", "Jenna", "Sherry", "Carol", "Catherine", "Cathy", "Laura", "Jason", "Rachel"]
+last_names = ["Lee", "Smith", "Jones", "White", "Black", "Huang", "Davis", "Torres", "Muhammed", "Heisenberg", "Rosenberg", "Goldberg", "Hannah", "West", "Eastwood", "Bond", "Myers", "Powers", "Obama", "Kennedy", "Adams", "Scott"]
+
+def random_token
+  new_token = []
+  80.times {new_token << ('a'..'z').to_a.sample}
+  80.times {new_token << ('A'..'Z').to_a.sample}
+  80.times {new_token << (0..9).to_a.sample}
+  new_token.shuffle.join
+end
+
+def random_num
+  new_num = []
+  13.times {new_num << (0..9).to_a.sample}
+  new_num.join
+end
+
+def image_category
+  ['people', 'sports', 'fashion', 'nightlife'].sample
+end
+
+250.times do
+  User.create({
+    provider: 'facebook',
+    uid: random_num,
+    name: "#{first_names.sample} #{last_names.sample}",
+    oauth_token: random_token,
+    oauth_expires_at: Time.now + 2.years,
+    email: 'user@hatetolove.com',
+    gender: [true, false].sample,
+    image: "http://lorempixel.com/350/350/#{image_category}/"
+    })
+end
+
+
