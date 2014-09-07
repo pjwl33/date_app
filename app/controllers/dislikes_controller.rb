@@ -1,8 +1,5 @@
-require 'actionpack/action_caching'
-
 class DislikesController < ApplicationController
-  before_action :current_user
-  caches_action :todays_dislikes, expires_in: 24.hour
+  before_action :signed_in?
 
   def new
     @dislikes = todays_dislikes
@@ -10,7 +7,12 @@ class DislikesController < ApplicationController
   end
 
   def todays_dislikes
-    Dislike.all.sample(5)
+    if Rails.cache.fetch('todays_dislikes') == nil
+      dls = Dislike.all.sample(5)
+      Rails.cache.write('todays_dislikes', dls, expires_in: 24.hours)
+    else
+      Rails.cache.fetch('todays_dislikes')
+    end
   end
 
   def create

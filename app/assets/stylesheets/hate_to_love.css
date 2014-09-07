@@ -1,3 +1,37 @@
 a:hover {
   text-decoration: none;
 }
+
+html body {
+  color: #eee !important;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 20pt;
+}
+
+html body a {
+  color: #ddd !important;
+  font-size: 20pt !important;
+}
+
+button {
+  font-family: 'Helvetica' !important;
+  margin:25px 0;
+  font-size: 20pt !important;
+}
+
+html body {
+  background-size: cover cover;
+  background-image: url("noisy_net.png");
+}
+
+#landing-logo {
+  margin-top: 50px;
+  max-width: 350px;
+  max-height: 350px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 15px #fff;
+}
+
+.hate-today {
+  margin-top:2em;
+}

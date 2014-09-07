@@ -1,4 +1,4 @@
 class ChatroomsController < ApplicationController
-  before_action :current_user
+  before_action :signed_in?
 
 end

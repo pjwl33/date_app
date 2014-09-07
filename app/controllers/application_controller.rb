@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :signed_in?, :current_user, :picked_dislike?
+  helper_method :signed_in?, :current_user
 
   def signed_in?
     true if session[:user_id]
@@ -14,11 +14,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def picked_dislike?
-    if current_user
-      true if current_user.dislike != nil
-    else
-      redirect_to root_path
-    end
-  end
 end

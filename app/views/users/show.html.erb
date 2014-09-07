@@ -2,10 +2,10 @@
 
 <img src="<%= @user.image %>" alt="">
 
-<% if picked_dislike? %>
-  <h3>Today, you hate: <%= @user.dislike %></h3>
+<% if current_user.dislike != nil %>
+  <h1>Today, you hate: <%= @user.dislike %></h1>
 <% else %>
-  <h3><a href="/dislikes/new">What Do You Hate Today?</a></h3>
+  <h1><a href="/dislikes/new">What Do You Hate Today?</a></h1>
 <% end %>
 
 </ul>

@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  before_action :current_user
+  before_action :signed_in?
 
   def index
     @users = User.all
+    redirect_to "/dislikes/new" if current_user.dislike == nil
   end
 
   def show

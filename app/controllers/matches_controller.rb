@@ -1,5 +1,5 @@
 class MatchesController < ApplicationController
-  before_action :current_user
+  before_action :signed_in?
 
   def create
     @match = current_user.matches.create(match_id: params[:match_id])

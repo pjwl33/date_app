@@ -1,10 +1,26 @@
-<h3>Looking for:
-  <input type="radio" value="male"> Male
-  <input type="radio" value="female"> Female
-</h3>
+<div class="gender-interest">
+  <h1>Looking for: </h1>
+    <form>
+      <div class="form-group">
+        <input type="radio" value="male" selected>
+        <label for="men">Men</label>
+      </div>
+      <div class="form-group">
+        <input type="radio" value="female">
+        <label for="women">Women</label>
+      </div>
+    </form>
+</div>
 
-<h1>What do you Hate Today?</h1>
-<% @dislikes.each do |dl| %>
-  <h4><input class="dislike-select" type="radio" value="<%= dl.id %>"> <%= dl.type_of.titleize %></h4>
-<% end %>
-<button onclick="saveDislike()">Find Matches</button>
+<div class="hate-today">
+  <h1>What do you Hate Today?</h1>
+  <form>
+    <% @dislikes.each do |dl| %>
+      <div class="form-group">
+        <input class="dislike-select" type="radio" value="<%= dl.id %>">
+        <label for="<%= dl.id %>"><%= dl.type_of.titleize %></label>
+      </div>
+    <% end %>
+    <button onclick="saveDislike()" class="btn btn-default">Find Matches</button>
+  </form>
+</div>

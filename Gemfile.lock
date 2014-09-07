@@ -10,8 +10,6 @@ GEM
       activesupport (= 4.1.2)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
-    actionpack-action_caching (1.1.1)
-      actionpack (>= 4.0.0, < 5.0)
     actionview (4.1.2)
       activesupport (= 4.1.2)
       builder (~> 3.1)
@@ -29,7 +27,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    angularjs-rails (1.2.20)
     arel (5.0.1.20140414130214)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
@@ -201,8 +198,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionpack-action_caching
-  angularjs-rails
   better_errors
   bootstrap-sass (~> 3.2.0)
   capybara
